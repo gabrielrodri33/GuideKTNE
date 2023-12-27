@@ -1,17 +1,51 @@
 from itertools import product
+import os
+
+def clear_console():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def separador(n, cor):
+    cores = {
+        1: {'azul': '\033[36m', 'limpa' : '\033[0m'},
+        2: {'verde': '\033[32m', 'limpa' : '\033[0m'},
+        3: {'roxo' : '\033[95m' , 'limpa' : '\033[0m'},
+        4: {'amarelo': '\033[33m', 'limpa': '\033[0m'},
+        5: {'vermelho': '\033[31m', 'limpa': '\033[0m'}
+    }
+
+    if cor == 1:
+        mensagem = f'{cores[1]["azul"]}-={cores[1]["limpa"]}' * n
+
+    elif cor == 2:
+        mensagem = f'{cores[2]["verde"]}-={cores[2]["limpa"]}' * n
+
+    elif cor == 3:
+        mensagem = f'{cores[3]["roxo"]}-={cores[3]["limpa"]}' * n
+
+    elif cor == 5:
+        mensagem = f'{cores[5]["vermelho"]}-={cores[5]["limpa"]}' * n
+
+    elif cor == 6:
+        mensagem = f'{cores[4]["amarelo"]}-={cores[4]["limpa"]}' * n
+    
+    elif cor == 7:
+        mensagem = f'{cores[5]["vermelho"]}{n}{cores[5]["limpa"]}'
+    return print(mensagem)
 
 def lista_palavras():
     lista = ["acessa", "ajuda", "amigo", "antes", "arcos", "baile", "balas", "bispo", "chefe", "cheio", "cinto", "cravo", "etapa", "etnia", "flora", "lazer", "legal", "lugar", "parte", "parto", "perto", "porta", "regra", "resto", "salve", "sente", "setor", "sexta", "tecla", "tinta", "torta", "touro", "trato", "valer", "veado"]
 
     return lista
 
-def letra(n):
+def letra(n, position):
     possivel_letra = []
     lista = lista_palavras()
 
     letra_lista = [palavra[n] for palavra in lista]
 
-    primeira = input(" Letra: ").strip().lower()
+    clear_console()
+    separador(14, 1)
+    primeira = input(f"{position}ª Letra: ").strip().lower()
 
     l1 = primeira[0]
     l2 = primeira[1]
@@ -41,16 +75,11 @@ def letra(n):
     return possivel_letra
 
 def principal():
-    print("1° ", end="")
-    primeira_letra = letra(0)
-    print("2° ", end="")
-    segunda_letra = letra(1)
-    print("3° ", end="")
-    terceira_letra = letra(2)
-    print("4° ", end="")
-    quarta_letra = letra(3)
-    print("5° ", end="")
-    quinta_letra = letra(4)
+    primeira_letra = letra(0, 1)
+    segunda_letra = letra(1, 2)
+    terceira_letra = letra(2, 3)
+    quarta_letra = letra(3, 4)
+    quinta_letra = letra(4, 5)
     descobrir_palavra(primeira_letra, segunda_letra, terceira_letra, quarta_letra, quinta_letra)
     
 
