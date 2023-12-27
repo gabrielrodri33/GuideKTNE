@@ -9,22 +9,23 @@ def listas():
     digito = input("O último dígito é par? [S/N] ").upper().strip()
 
     if paralela[0] == "N":
-        vermelho = list(filter(lambda x: x != "P", vermelho))
-        azul = list(filter(lambda x: x != "P", azul))
-        estrela = list(filter(lambda x: x != "P", estrela))
-        led = list(filter(lambda x: x != "P", led))
+        vermelho = ['X' if x == 'P' else x for x in vermelho]
+        azul = ['X' if x == 'P' else x for x in azul]
+        estrela = ['X' if x == 'P' else x for x in estrela]
+        led = ['X' if x == 'P' else x for x in led]
 
     if pilhas[0] == "N":
-        vermelho = list(filter(lambda x: x != "B", vermelho))
-        azul = list(filter(lambda x: x != "B", azul))
-        estrela = list(filter(lambda x: x != "B", estrela))
-        led = list(filter(lambda x: x != "B", led))
+        vermelho = ['X' if x == 'B' else x for x in vermelho]
+        azul = ['X' if x == 'B' else x for x in azul]
+        estrela = ['X' if x == 'B' else x for x in estrela]
+        led = ['X' if x == 'B' else x for x in led]
 
     if digito[0] == "N":
-        vermelho = list(filter(lambda x: x != "S", vermelho))
-        azul = list(filter(lambda x: x != "S", azul))
-        estrela = list(filter(lambda x: x != "S", estrela))
-        led = list(filter(lambda x: x != "S", led))
+        vermelho = ['X' if x == 'S' else x for x in vermelho]
+        azul = ['X' if x == 'S' else x for x in azul]
+        estrela = ['X' if x == 'S' else x for x in estrela]
+        led = ['X' if x == 'S' else x for x in led]
+
 
     return vermelho, azul, estrela, led
 
