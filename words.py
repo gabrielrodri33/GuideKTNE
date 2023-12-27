@@ -96,7 +96,8 @@ def descobrir_palavra(primeira_letra, segunda_letra, terceira_letra, quarta_letr
 
     palavras_em_comum = list(set_lista.intersection(set_palavras))
 
-    print(palavras_em_comum)
+    for c in palavras_em_comum:
+        print(c)
 #Programa principal
 principal()
 
