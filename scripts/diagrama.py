@@ -260,6 +260,3 @@ def principal():
     red, blue, star, led = primary_lists()
     while count != "S":
         count = secondary_lists(red, blue, star, led)
-
-#Programa principal
-principal()
