@@ -70,3 +70,4 @@ def descobrir_palavra(primeira_letra, segunda_letra, terceira_letra, quarta_letr
     print(palavras_em_comum)
 #Programa principal
 principal()
+
