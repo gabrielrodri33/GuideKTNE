@@ -1,5 +1,6 @@
 from itertools import product
 import os
+import time
 
 def clear_console():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -98,6 +99,5 @@ def descobrir_palavra(primeira_letra, segunda_letra, terceira_letra, quarta_letr
 
     for c in palavras_em_comum:
         print(c)
-#Programa principal
-principal()
-
+    
+    time.sleep(5)
