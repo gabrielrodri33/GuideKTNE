@@ -60,7 +60,7 @@ def validation(option):
                     else:
                         separador("Entrada inválida!", 7)
                         print('Digite "S" ou "N"')
-                        separador(20, 1)
+                        separador(28, 1)
                 
                 except ValueError as e:
                     print(f"Error: {e}")
@@ -77,7 +77,7 @@ def validation(option):
                     else:
                         separador("Entrada inválida!", 7)
                         print('Digite "S" ou "N"')
-                        separador(20, 1)
+                        separador(28, 1)
                 
                 except ValueError as e:
                     print(f"Error: {e}")
@@ -94,7 +94,7 @@ def validation(option):
                     else:
                         separador("Entrada inválida!", 7)
                         print('Digite "S" ou "N"')
-                        separador(20, 1)
+                        separador(28, 1)
                 
                 except ValueError as e:
                     print(f"Error: {e}")
@@ -103,7 +103,7 @@ def validation(option):
 
 def primary_lists():
     clear_console()
-    separador(20, 1)
+    separador(28, 1)
 
     red = ["S", "C", "S", "P", "S", "N", "B", "B"]
     blue = ["S", "P", "S", "S", "P", "N", "N", "P"]
@@ -153,8 +153,27 @@ Estrela OK
 Led - Estrela OK
 '''
 
+'''
+Vermelho / v OK
+Vermelho - Led / vl OK
+Vermelho - Estrela / ve
+Vermelho - Led - Estrela / vle
+Vermelho - Azul / va
+Vermelho - Azul - Led / val
+Vermelho - Azul - Led - Estrela / vale
+
+Azul / a
+Azul - Led / al
+Azul - Estrela / ae
+Azul - Estrela - Led / ael
+
+Led / l
+Estrela / e
+Led - Estrela / le
+'''
+
 def secondary_lists(red, blue, star, led):
-    no_cut = cut = 0
+    no_cut = cut = dynamic_list = 0
 
     red_blue = [red[2], red[3], red[4], red[5]]
     red_star = [red[1], red[3], red[5], red[7]]
@@ -170,7 +189,22 @@ def secondary_lists(red, blue, star, led):
 
     led_star = [led[4], led[5], led[6], led[7]]
 
-    for i in red_star:
+    separador(28, 1)
+    wire = input("Especifique os fios apenas com as iniciais: ").strip().upper()
+
+    if "V" in wire and "L" in wire and "E" in wire:
+        dynamic_list = red_led_star
+        print("redledstar")
+
+    elif "V" in wire and "L" in wire:
+        dynamic_list = red_led
+        print("redled")
+
+    elif wire == "V":
+        dynamic_list = red
+        print("red")
+
+    for i in dynamic_list:
         if i == "N":
             no_cut += 1
         
@@ -190,13 +224,9 @@ def principal():
     count = 0
 
     red, blue, star, led = primary_lists()
-
-    secondary_lists(red, blue, star, led)
-
-    # print(red)
-    # print(blue)
-    # print(star)
-    # print(led)
+    while count < 6:
+        secondary_lists(red, blue, star, led)
+        count += 1
 
 #Programa principal
 principal()
